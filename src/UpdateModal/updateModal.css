@@ -1,0 +1,29 @@
+.modal-container{
+    inset: 0;
+    position:fixed;
+    background-color: rgba(0, 0, 0, 0.803);
+    opacity: 0.5px;
+    top:0;
+    left: 0;
+    bottom: 0;
+}
+.modal {
+    background-color: #fff;
+    margin-top: 100px;
+    max-width: 500px;
+    border-radius: 5px;
+    margin: 50px auto 0  auto;
+}
+.modal-close-btn {
+    text-align: end;
+}
+.modal-close-btn button{
+    text-align: end;
+    padding: 5px 8px;
+    color: #fff;
+    border: 0;
+    background-color: red;
+    font-size: 20px;
+    cursor: pointer;
+    
+}

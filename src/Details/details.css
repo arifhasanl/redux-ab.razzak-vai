@@ -1,0 +1,10 @@
+.detals-container{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.arrow-btn button{
+border: 0;
+font-size: 30px;
+margin-top: 30px;
+background-color: '';
+}
