@@ -52,7 +52,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
         initialValues: {
             first_name: first_name,
             last_name: last_name,
-            user_type:last_name
+            user_type:user_type
         },
         validate,
         onSubmit: values => {
@@ -93,7 +93,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                         </div>
                         <div className='select'>
                             <label htmlFor="last_name">Select Type</label>
-                            <select id='select' value={formik.values.user_type} name='user_type' onChange={formik.handleChange}
+                            <select id='select' defaultValue={formik.values.user_type} name='user_type' onChange={formik.handleChange}
                                 >
                                 <option value="">select type</option>
                                 <option value="admin">admin</option>
