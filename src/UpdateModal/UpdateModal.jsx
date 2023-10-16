@@ -50,9 +50,9 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
     const formik = useFormik({
       
         initialValues: {
-            first_name: '',
-            last_name: '',
-            user_type:''
+            first_name: first_name,
+            last_name: last_name,
+            user_type:last_name
         },
         validate,
         onSubmit: values => {
@@ -74,6 +74,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                                 name="first_name"
                                 type="text"
                                 onChange={formik.handleChange}
+                                value={formik.values.first_name}
                             />
                             {formik.errors.first_name ? <div className='error'>{formik.errors.first_name}</div> : null}
                         </div>
@@ -86,16 +87,17 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                                 name="last_name"
                                 type="text"
                                 onChange={formik.handleChange}
+                                value={formik.values.last_name}
                             />
                             {formik.errors.last_name ? <div className='error'>{formik.errors.last_name}</div> : null}
                         </div>
                         <div className='select'>
                             <label htmlFor="last_name">Select Type</label>
-                            <select id='select' defaultValue={user_type} name='user_type' onChange={formik.handleChange}
+                            <select id='select' value={formik.values.user_type} name='user_type' onChange={formik.handleChange}
                                 >
                                 <option value="">select type</option>
                                 <option value="admin">admin</option>
-                                <option value="emplyee">emplyee</option>
+                                <option value="employee">emplyee</option>
                             </select>
                             {formik.errors.user_type ? <div className='error'>{formik.errors.user_type}</div> : null}
                         </div>

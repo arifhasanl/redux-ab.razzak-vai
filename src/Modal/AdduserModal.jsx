@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 const AdduserModal = ({ isOpen, setIsOpen }) => {
     const [selectedDistrict, setSelectedDistrict] = useState([]);
     const [setData,{data,error,isSuccess}]=usePostUserMutation();
-   console.log(data);
+   console.log(data,'dataaa');
     if (isSuccess) {
         Swal.fire({
             position: 'center',
@@ -121,7 +121,7 @@ const AdduserModal = ({ isOpen, setIsOpen }) => {
                                 value={formik.values.user_type}>
                                 <option value="">select type</option>
                                 <option value="admin">admin</option>
-                                <option value="emplyee">emplyee</option>
+                                <option value="employee">emplyee</option>
                             </select>
                             {formik.errors.user_type ? <div className='error'>{formik.errors.user_type}</div> : null}
                         </div>
