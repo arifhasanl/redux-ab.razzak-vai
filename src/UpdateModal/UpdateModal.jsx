@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+
 import './updateModal.css'
 
 import { useFormik } from 'formik';
