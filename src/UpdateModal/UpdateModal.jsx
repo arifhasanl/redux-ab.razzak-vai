@@ -97,7 +97,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                                 >
                                 <option value="">select type</option>
                                 <option value="admin">admin</option>
-                                <option value="employee">emplyee</option>
+                                <option value="employee">employee</option>
                             </select>
                             {formik.errors.user_type ? <div className='error'>{formik.errors.user_type}</div> : null}
                         </div>
