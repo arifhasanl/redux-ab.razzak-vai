@@ -5,9 +5,10 @@ import './updateModal.css'
 import { useFormik } from 'formik';
 import { useUpDateUserMutation } from '../Redux/api/baseApi';
 import Swal from 'sweetalert2';
-const UpdateModal = ({singleData,setIsModalOpen}) => {
-    const { first_name, last_name, user_type,id  } = singleData;
-    const [setUpdatedata,{error,isSuccess}]=useUpDateUserMutation()
+import { RotatingLines } from 'react-loader-spinner';
+const UpdateModal = ({ singleData, setIsModalOpen }) => {
+    const { first_name, last_name, user_type, id } = singleData;
+    const [setUpdatedata, { error, isSuccess, isLoading }] = useUpDateUserMutation()
     if (isSuccess) {
         Swal.fire({
             position: 'center',
@@ -25,7 +26,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
             footer: '<a href="">Why do I have this issue?</a>'
         })
     }
-    const handleModal=()=>{
+    const handleModal = () => {
         setIsModalOpen(false);
     }
 
@@ -48,28 +49,28 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
         return errors;
     };
     const formik = useFormik({
-      
+
         initialValues: {
             first_name: first_name,
             last_name: last_name,
-            user_type:user_type
+            user_type: user_type
         },
         validate,
         onSubmit: values => {
-            setUpdatedata({data:values,id})
+            setUpdatedata({ data: values, id })
         },
     });
 
     return (
         <div className='modal-container'>
             <div className='modal'>
-            <div className='modal-close-btn'> <button onClick={() => handleModal()}>Close</button></div>
+                <div className='modal-close-btn'> <button onClick={() => handleModal()}>Close</button></div>
                 <div className='form'>
                     <form onSubmit={formik.handleSubmit}>
                         <div className='input'>
                             <label htmlFor="first_name">First Name</label>
                             <input
-                            defaultValue={first_name}
+                                defaultValue={first_name}
                                 id="first_name"
                                 name="first_name"
                                 type="text"
@@ -82,7 +83,7 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                         <div className='input'>
                             <label htmlFor="last_name">Last Name</label>
                             <input
-                              defaultValue={last_name}
+                                defaultValue={last_name}
                                 id="last_name"
                                 name="last_name"
                                 type="text"
@@ -94,17 +95,29 @@ const UpdateModal = ({singleData,setIsModalOpen}) => {
                         <div className='select'>
                             <label htmlFor="last_name">Select Type</label>
                             <select id='select' defaultValue={formik.values.user_type} name='user_type' onChange={formik.handleChange}
-                                >
+                            >
                                 <option value="">select type</option>
                                 <option value="admin">admin</option>
                                 <option value="employee">employee</option>
                             </select>
                             {formik.errors.user_type ? <div className='error'>{formik.errors.user_type}</div> : null}
                         </div>
-                       
+
 
                         <div className='submit-btn'>
-                            <button type="submit">Submit</button></div>
+                            <button type="submit">Update
+                                {
+
+                                    isLoading && <RotatingLines
+                                        strokeColor="grey"
+                                        strokeWidth="5"
+                                        animationDuration="0.75"
+                                        width="20"
+                                        visible={true}
+                                    />
+                                }
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

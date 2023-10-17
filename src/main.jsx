@@ -6,6 +6,9 @@ import { Provider } from 'react-redux'
 import { store } from './Redux/Store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Details from './Details/Details'
+
+
+import UpdatePage from './UpdatePage/UpdatePage'
 const router=createBrowserRouter([
   {
     path:'/',
@@ -14,6 +17,10 @@ const router=createBrowserRouter([
   {
     path:'/details/:id',
     element:<Details></Details>
+  },
+  {
+    path:'/update/:id',
+    element:<UpdatePage></UpdatePage>
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(

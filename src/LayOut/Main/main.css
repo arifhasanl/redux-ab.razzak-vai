@@ -1,3 +1,8 @@
+
+
+.flex{
+  display: flex;
+}
 .container{
     max-width: 1280px;
     margin: 0 auto;
@@ -15,11 +20,11 @@
     border:0;
     font-size: 20px;
     margin-right: 20px;
-    border-radius: 5px;
     cursor: pointer;
 }
 .type{
-    background-color: rgb(0, 117, 128);
+  background-color: green;
+  opacity: 0.5;
 }
 .type-active{
     background-color: green;
@@ -31,7 +36,6 @@
     color:white;
     border:0;
     font-size: 20px;
-    border-radius: 5px;
     cursor: pointer;
 }
 .type-title h3{
@@ -51,12 +55,21 @@ table {
     text-align: center;
     padding: 8px;
     border-bottom: 2px solid red;
-    font-size:25px;
+    font-size:20px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
-  td {
+  td  {
     text-align: center;
     padding: 8px;
-    font-size:20px
+    font-size:20px;
+  }
+  td.btn  {
+   width: 0;
+  }
+  td.delete{
+
+    margin-right: 5px;
   }
   
   tr:nth-child(even) {
@@ -67,26 +80,37 @@ table {
     padding: 8px 12px;
     border:0;
     background-color: rgb(0, 42, 255);
-    border-radius:5px;
-    color:#fff;
+    width: 120px;;
+    height: 45px;
+    color: #fff;
+    border: 0px;
     font-size: 20px;
+    cursor: pointer;
   }
   .detail-btn{
-    padding: 8px 12px;
+    width: 120px;;
+    height: 45px;
     border:0;
     background-color: rgb(0, 117, 128);
-    border-radius:5px;
     color:#fff;
     font-size: 20px;
   }
   .delete-btn{
-    padding: 8px 12px;
-    border:0;
+    width: 120px;;
+    height: 45px;
     background-color: red;
-    border-radius:5px;
-    color:#fff;
+    color: #fff;
+    border: 0px;
     font-size: 20px;
+    cursor: pointer;
+    position: relative;
   }
+  .spin{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+ 
+ }
   .pagination{
     text-align: center;
   }
@@ -97,16 +121,15 @@ table {
     margin-right: 10px;
     cursor: pointer;
     border: 0;
-    border-radius: 5px;
   }
   .pagi-arrow-btn{
     margin-top: 30px;
     padding: 10px 14px;
     margin-right: 10px;
-    cursor: pointer;
-    background:#005e80;
+    background-color: green;
+    opacity: 0.5;
     border: 0;
-    border-radius: 5px;
+    
     color: #fff;
   }
   .active-pagi{
@@ -115,9 +138,8 @@ table {
     margin-top: 30px;
     padding: 10px 14px;
     margin-right: 10px;
-    cursor: pointer;
     border: 0;
-    border-radius: 5px;
+    
   }
   .loading{
     text-align: center;
@@ -127,4 +149,66 @@ table {
     font-size:35px;
     font-weight: 700px;
     color:black
+  }
+
+  @media only screen and (min-width: 180px) and (max-width: 780px) {
+    .type-title h3{
+      font-size: 10px;
+      }
+    .Edit-btn{
+      width: 30px;
+      height: 20px;
+      color: #fff;
+      font-size: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .detail-btn{
+      width: 30px;
+      height: 20px;
+      color:#fff;
+      font-size: 6px;
+    }
+    .delete-btn{
+      width: 30px;
+      height: 20px;
+      padding: 2px;
+      font-size:8px
+    }
+    th  {
+      text-align: center;
+      font-size:8px
+    }
+    td{
+      font-size: 6px;
+    }
+    .pagination-btn{
+      padding: 4px 4px;
+    }
+    .pagi-arrow-btn{
+      padding: 4px 4px;
+      margin-right: 2px;
+    }
+    .active-pagi{
+      padding: 4px 4px;
+      margin-right: 2px;
+      
+    }
+    .type-btn button{
+      padding: 4px 4px;
+      font-size: 8px;
+  }
+  .type-btn button{
+    padding: 4px 4px;
+    font-size: 8px;
+    margin-right: 5px;
+}
+.addUser button{
+
+  padding: 3px 3px;
+  font-size: 8px;
+}
+
   }

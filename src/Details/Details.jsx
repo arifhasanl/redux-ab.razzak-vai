@@ -6,9 +6,12 @@ import {  FaArrowLeft,  } from "react-icons/fa";
 const Details = () => {
     const {id}=useParams();
     console.log(id);
-    const {data}=useGetSingleUserQuery(id);
+    const {data,isLoading}=useGetSingleUserQuery(id);
     console.log(data);
     return (
+        <>
+        {
+        isLoading?<><h1 className='loading'>Loading...</h1></>:<>
         <div className="detals-container">
             <div className='arrow-btn'>
                <Link to={'/'}> <button><FaArrowLeft></FaArrowLeft></button></Link>
@@ -21,6 +24,9 @@ const Details = () => {
                 <p>Division:{data?.district}</p>
             </div>
         </div>
+        </>
+        }
+        </>
     );
 };
 

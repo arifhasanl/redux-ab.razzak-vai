@@ -7,7 +7,7 @@ baseQuery:fetchBaseQuery({baseUrl:'https://60f2479f6d44f300177885e6.mockapi.io'}
 tagTypes:['tasks'],
 endpoints:(builder)=>({
     getUser:builder.query({
-        query:({type,page,limit})=>`/users?user_type=${type}&?page=${page}&limit=${limit}`,
+        query:({type,page,limit})=>`/users?user_type=${type}?&page=${page}&limit=${limit}`,
         providesTags:['tasks']
     }),
     

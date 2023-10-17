@@ -1,0 +1,43 @@
+.updatePage-container{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.edit-btn .submit-btn{
+    width: 180px;
+    height: 45px;
+    background-color: green;
+    color: #fff;
+    border: 0px;
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+}
+.edit-btn .cencel-btn{
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    border:0px;
+    font-size:20px;
+    text-decoration:none
+}
+.spin{
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+
+}
+@media only screen and (min-width: 180px) and (max-width: 767px) {
+    
+.edit-btn .submit-btn{
+    width: 70px;
+    height: 21px;
+    font-size: 10px;
+    margin-right: 10px;
+}
+.edit-btn .cencel-btn{
+    padding: 4px 6px;
+    font-size:10px;
+}
+}
