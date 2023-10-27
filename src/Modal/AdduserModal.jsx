@@ -9,8 +9,17 @@ import { Formik } from 'formik';
 import { RotatingLines } from 'react-loader-spinner';
 const AdduserModal = ({ isOpen, setIsOpen }) => {
     const [selectedDivision, setSelectedDiVision] = useState([]);
-    const [setData, { data, error, isSuccess, isLoading }] = usePostUserMutation();
-
+    const [setData, { isSuccess,isLoading,data }] = usePostUserMutation();
+console.log(isLoading,isSuccess,'data:',data);
+    if (isSuccess) {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'User Added Success Full',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
     const [type, setType] = useState('');
     const divisionsByDistrict = {
         Dhaka: ['Dhaka', 'Gazipur', 'Narayanganj'],
@@ -71,11 +80,8 @@ const AdduserModal = ({ isOpen, setIsOpen }) => {
                     }}
 
                     onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
                             setData({ data: values });
                             setIsOpen(false)
-                            setSubmitting(false)
-                        }, 400);
                     }}
                 >
                     {({

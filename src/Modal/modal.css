@@ -34,20 +34,30 @@
 .input input{
     width: 100%;
     height: 30px;
-    border: 1px solid gray;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    
     
 }
 .input {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    
+}
+.input label{
+    font-size: 23px;
+    margin-bottom: 5px;
+    font-weight: 700;
     
 }
 #select{
     width: 100%;
     height: 30px;
-    border: 1px solid black;
+    border: 0.5px solid gray;
 }
 .select{
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 700;
 }
 .submit-btn {
     text-align: center;

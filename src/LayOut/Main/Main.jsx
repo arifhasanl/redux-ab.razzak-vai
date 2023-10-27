@@ -5,6 +5,7 @@ import Item from './Item';
 import './main.css'
 import AdduserModal from '../../Modal/AdduserModal';
 import UpdateModal from '../../UpdateModal/UpdateModal';
+import { Circles } from 'react-loader-spinner';
 
 const Main = () => {
     const [courrentPage, setCourentPage] = useState(1);
@@ -12,7 +13,7 @@ const Main = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [singleData, setSIngleData] = useState('');
-
+    console.log(courrentPage);
     const itemPerpage = 5;
     const { data, isLoading } = useGetUserQuery({ page: courrentPage, type: type, limit: itemPerpage });
 
@@ -30,12 +31,30 @@ const Main = () => {
     }
     const handleCourentPage = (number) => {
         setCourentPage(number);
+        
     }
-
+    const handleNextBtn=()=>{
+        
+        setCourentPage(courrentPage+1)
+        
+    }
+    const handlePrevtBtn=()=>{
+        setCourentPage(courrentPage-1)
+        
+    }
+   
     return (
         <>
             {
-                isLoading ? <><h1 className='loading'>Loading...</h1></> : <>
+                isLoading ? <><h1 className='loading'><Circles
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              /></h1></> : <>
                     <div className='container'>
                         <div className="type-menu">
                             <div className='type-btn'>
@@ -76,19 +95,22 @@ const Main = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {
-                                        data?.map(singleData => <Item isLoading={isLoading} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setSIngleData={setSIngleData} key={singleData.id} singleData={singleData} ></Item>)
+                                   {data?.map(singleData => <Item dataIsLoading={isLoading} setSIngleData={setSIngleData} key={singleData.id} singleData={singleData} ></Item>)
                                     }
                                 </tbody>
                             </table>
                         </div>
                         {/* pagination */}
                         <div className='pagination'>
-                            <button className={courrentPage === 1 ? 'pagi-arrow-btn' : 'pagination-btn'}>Prev</button>
+                           {
+                            courrentPage ===1?  <button disabled className={'pagi-arrow-btn' }>Prev</button>:<button onClick={()=>handlePrevtBtn()} className='pagination-btn'>Prev</button>
+                           }
                             {
                                 pageNumbers.map(number => <button className={courrentPage === number ? 'active-pagi' : 'pagination-btn'} onClick={() => handleCourentPage(number)} key={number}>{number}</button>)
                             }
-                            <button className={courrentPage === 9 ? 'pagi-arrow-btn' : 'pagination-btn'}>Next</button>
+                            {
+                            courrentPage ===9?  <button disabled className={'pagi-arrow-btn' }>Prev</button>:<button onClick={()=>handleNextBtn()} className='pagination-btn'>Prev</button>
+                           }
                         </div>
                         {
                             isOpen && <AdduserModal isOpen={isOpen} setIsOpen={setIsOpen}></AdduserModal>

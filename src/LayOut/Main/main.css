@@ -55,9 +55,9 @@ table {
     text-align: center;
     padding: 8px;
     border-bottom: 2px solid red;
-    font-size:20px;
+    font-size:25px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   td  {
     text-align: center;
@@ -144,6 +144,8 @@ table {
   .loading{
     text-align: center;
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
   }
   .loading h1{
     font-size:35px;

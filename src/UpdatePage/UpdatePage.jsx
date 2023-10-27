@@ -1,16 +1,17 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetSingleUserQuery, useUpDateUserMutation } from "../Redux/api/baseApi";
-import { RotatingLines } from "react-loader-spinner";
+import { Circles, RotatingLines } from "react-loader-spinner";
 import { Formik } from "formik";
 import './updatePage.css'
 import Swal from "sweetalert2";
 
 const UpdatePage = () => {
     const { id } = useParams();
-    const { data } = useGetSingleUserQuery(id);
+    const { data,isLoading:loading } = useGetSingleUserQuery(id);
     const navigate=useNavigate()
     const [setUpdateData, { isLoading, isSuccess }] = useUpDateUserMutation()
     // const { first_name, last_name, user_type } = data;
+    
     if (isSuccess) {
 
         Swal.fire({
@@ -25,7 +26,15 @@ const UpdatePage = () => {
     }
     return (
         <div className="updatePage-container">
-            <div>
+            {loading ? <><h1 className='loading'><Circles
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="circles-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              /></h1></>:<div>
                 <Formik
                     initialValues={{
                         first_name: data?.first_name,
@@ -127,6 +136,7 @@ const UpdatePage = () => {
                     )}
                 </Formik>
             </div>
+            }
         </div>
     );
 };
